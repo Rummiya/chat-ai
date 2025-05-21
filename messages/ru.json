@@ -1,0 +1,17 @@
+{
+	"localeSwitcher": {
+		"locale": "{locale, select, ru {ru Russian} en {🇺🇸 English} other {Unknown}}",
+		"label": "язык"
+	},
+	"home": {
+		"title": "Привет",
+		"desc": "Я наконец-то добавила перевод"
+	},
+	"auth": {
+		"login": "Log in",
+		"register": "Register"
+	},
+	"chat": {
+		"send": "Send message"
+	}
+}

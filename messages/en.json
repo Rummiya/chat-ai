@@ -1,0 +1,17 @@
+{
+	"localeSwitcher": {
+		"locale": "{locale, select, ru {ru Russian} en {🇺🇸 English} other {Unknown}}",
+		"label": "language"
+	},
+	"home": {
+		"title": "Hello world",
+		"desc": "I finally added translation"
+	},
+	"auth": {
+		"login": "Log in",
+		"register": "Register"
+	},
+	"chat": {
+		"send": "Send message"
+	}
+}
