@@ -12,11 +12,11 @@ type Props = {
 	label: string;
 };
 
-export default function LocaleSwitcherSelect({
+export const LocaleSwitcherSelect = ({
 	children,
 	defaultValue,
 	label,
-}: Props) {
+}: Props) => {
 	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
 	const pathname = usePathname();
@@ -53,4 +53,4 @@ export default function LocaleSwitcherSelect({
 			<span className='pointer-events-none absolute right-2 top-[8px]'>⌄</span>
 		</label>
 	);
-}
+};

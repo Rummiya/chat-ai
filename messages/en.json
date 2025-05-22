@@ -1,6 +1,6 @@
 {
 	"localeSwitcher": {
-		"locale": "{locale, select, ru {ru Russian} en {🇺🇸 English} other {Unknown}}",
+		"locale": "{locale, select, ru {ru Русский} en {🇺🇸 English} other {Unknown}}",
 		"label": "language"
 	},
 	"home": {
@@ -8,8 +8,31 @@
 		"desc": "I finally added translation"
 	},
 	"auth": {
-		"login": "Log in",
-		"register": "Register"
+		"email": "Email",
+		"password": "Password",
+
+		"register": {
+			"title": "Register",
+			"desc": "Register for further work",
+			"button": "Register",
+			"hasAccount": "Already have an account?",
+			"loginLink": "Log in",
+			"validation": {
+				"email": "Email is invalid",
+				"password": "Password must be at least 8 characters"
+			}
+		},
+		"login": {
+			"title": "Log in",
+			"desc": "Log in for further work",
+			"button": "Log in",
+			"noAccount": "Don't have an account?",
+			"registerLink": "Register",
+			"validation": {
+				"email": "Invalid email",
+				"password": "Password is required"
+			}
+		}
 	},
 	"chat": {
 		"send": "Send message"
