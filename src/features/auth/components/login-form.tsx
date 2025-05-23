@@ -1,10 +1,6 @@
 'use client';
 
-import { Link } from '@/shared/i18n/navigation';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-
-import { Button } from '@/shared/ui/button';
+import { Button } from '@/components/ui/button';
 import {
 	Form,
 	FormControl,
@@ -12,13 +8,17 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '@/shared/ui/form';
-import { Input } from '@/shared/ui/input';
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 
 import { createLoginSchema, LoginSchema } from '@/features/auth/auth-schema';
+import { Link } from '@/lib/i18n/navigation';
+import { zodResolver } from '@hookform/resolvers/zod';
+
 import { useLogin } from '@/features/auth/useAuth';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
 
 export const LoginForm = () => {
 	const { mutateAsync, isPending, error } = useLogin();

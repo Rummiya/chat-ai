@@ -1,5 +1,5 @@
 import { loginUser, registerUser } from '@/features/auth/auth-service';
-import { useAuthStore } from '@/shared/store/authStore';
+import { useAuthStore } from '@/lib/store/authStore';
 import { User } from '@/types';
 import { useMutation } from '@tanstack/react-query';
 

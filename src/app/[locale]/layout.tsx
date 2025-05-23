@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
+import { routing } from '@/lib/i18n/routing';
 import { QueryProvider } from '@/providers/query-provider';
-import { routing } from '@/shared/i18n/routing';
 import { hasLocale, Locale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
