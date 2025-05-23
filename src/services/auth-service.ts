@@ -1,7 +1,8 @@
-const BASE_URL = 'https://682dbcc44fae188947575108.mockapi.io';
+import { BASE_URL } from '@/constants';
+import { User } from '@/types';
 
-export async function registerUser(email: string, password: string) {
-	const res = await fetch(`${BASE_URL}/api/register`, {
+export const registerUser = async (email: string, password: string) => {
+	const res = await fetch(`${BASE_URL}/api/users`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ email, password }),
@@ -9,17 +10,29 @@ export async function registerUser(email: string, password: string) {
 
 	if (!res.ok) throw new Error('Failed to register');
 	return res.json();
-}
+};
 
-export async function loginUser(email: string, password: string) {
-	const res = await fetch(`${BASE_URL}/api/login`, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ email, password }),
-	});
+export const loginUser = async (email: string, password: string) => {
+	const res = await fetch(`${BASE_URL}/api/users?email=${email}`);
 
-	const user = await res.json();
-	if (!user) throw new Error('Invalid credentials');
+	if (res.status === 404) {
+		throw new Error('Неверная почта');
+	}
 
-	return { token: btoa(user.email), user };
-}
+	const users = (await res.json()) as User[];
+
+	if (!users.length) {
+		throw new Error('Пользователь не найден');
+	}
+
+	const user = users[0];
+
+	if (user.password !== password) {
+		throw new Error('Неверный пароль');
+	}
+
+	return {
+		token: btoa(user.email),
+		user,
+	};
+};
