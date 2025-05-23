@@ -1,4 +1,4 @@
-import { LocaleSwitcher } from '@/components/shared/locale-switcher';
+import { LocaleSwitcher } from '@/shared/components/locale-switcher';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from '@/i18n/navigation';
+import { usePathname, useRouter } from '@/shared/i18n/navigation';
 import clsx from 'clsx';
 import { Locale } from 'next-intl';
 import { useParams } from 'next/navigation';

@@ -1,10 +1,10 @@
 'use client';
 
-import { Link } from '@/i18n/navigation';
+import { Link } from '@/shared/i18n/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/ui/button';
 import {
 	Form,
 	FormControl,
@@ -12,22 +12,24 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+} from '@/shared/ui/form';
+import { Input } from '@/shared/ui/input';
 
-import { useLogin } from '@/hooks/useAuth';
-import { createLoginSchema, LoginSchema } from '@/schemas/auth';
+import {
+	createRegisterSchema,
+	RegisterSchema,
+} from '@/features/auth/auth-schema';
+import { useRegister } from '@/features/auth/useAuth';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 
-export const LoginForm = () => {
-	const { mutateAsync, isPending, error } = useLogin();
+export function RegisterForm() {
 	const router = useRouter();
-
 	const t = useTranslations('auth');
-	const formSchema = createLoginSchema(t);
+	const formSchema = createRegisterSchema(t);
+	const { mutateAsync, isPending } = useRegister();
 
-	const form = useForm<LoginSchema>({
+	const form = useForm<RegisterSchema>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			email: '',
@@ -37,9 +39,8 @@ export const LoginForm = () => {
 
 	const onSubmit = async (data: { email: string; password: string }) => {
 		try {
-			const res = await mutateAsync(data);
-			console.log(res);
-			router.push('/profile');
+			await mutateAsync(data);
+			router.push('/auth/login');
 		} catch (error) {
 			console.log(error);
 		}
@@ -78,20 +79,18 @@ export const LoginForm = () => {
 					)}
 				/>
 
-				{error && <span className='text-red-500 text-sm'>{error.message}</span>}
-
 				<div className='flex flex-col gap-2 items-center'>
 					<span className='text-xs'>
-						{t('login.noAccount')}{' '}
-						<Link href={'/auth/register'} className='text-blue-800'>
-							{t('login.registerLink')}
+						{t('register.hasAccount')}{' '}
+						<Link href={'/auth/login'} className='text-blue-800'>
+							{t('register.loginLink')}
 						</Link>
 					</span>
 					<Button type='submit' disabled={isPending}>
-						{t('login.button')}
+						{isPending ? 'loading' : t('register.button')}
 					</Button>
 				</div>
 			</form>
 		</Form>
 	);
-};
+}

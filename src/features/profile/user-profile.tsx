@@ -1,7 +1,7 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useProfile } from '@/hooks/useProfile';
+import { useProfile } from '@/features/profile/useProfile';
+import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/card';
 import { useTranslations } from 'next-intl';
 
 export const UserProfile = () => {

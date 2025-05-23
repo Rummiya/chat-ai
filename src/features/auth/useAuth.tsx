@@ -1,5 +1,5 @@
-import { loginUser, registerUser } from '@/services/auth-service';
-import { useAuthStore } from '@/store/authStore';
+import { loginUser, registerUser } from '@/features/auth/auth-service';
+import { useAuthStore } from '@/shared/store/authStore';
 import { User } from '@/types';
 import { useMutation } from '@tanstack/react-query';
 

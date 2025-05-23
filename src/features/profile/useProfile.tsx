@@ -1,5 +1,7 @@
-import { getProfile } from '@/services/profile-service';
-import { useAuthStore } from '@/store/authStore';
+'use client';
+
+import { getProfile } from '@/features/profile/profile-service';
+import { useAuthStore } from '@/shared/store/authStore';
 import { useQuery } from '@tanstack/react-query';
 
 export const useProfile = () => {

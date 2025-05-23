@@ -1,12 +1,12 @@
+import { RegisterForm } from '@/features/auth/components/register-form';
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from '@/components/ui/card';
+} from '@/shared/ui/card';
 import { useTranslations } from 'next-intl';
-import { RegisterForm } from './register-form';
 
 export default function Register() {
 	const t = useTranslations('auth.register');

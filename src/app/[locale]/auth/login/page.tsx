@@ -1,12 +1,12 @@
+import { LoginForm } from '@/features/auth/components/login-form';
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from '@/components/ui/card';
+} from '@/shared/ui/card';
 import { useTranslations } from 'next-intl';
-import { LoginForm } from './login-form';
 
 export default function Login() {
 	const t = useTranslations('auth.login');
