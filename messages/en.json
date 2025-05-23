@@ -34,6 +34,12 @@
 			}
 		}
 	},
+	"profile": {
+		"title": "User profile",
+		"email": "Email",
+		"id": "ID",
+		"error": "Failed to load profile"
+	},
 	"chat": {
 		"send": "Send message"
 	}
