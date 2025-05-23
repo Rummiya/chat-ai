@@ -15,10 +15,14 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
+import { useRegister } from '@/hooks/useAuth';
 import { createRegisterSchema, RegisterSchema } from '@/schemas/auth';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 export function RegisterForm() {
+	const { mutateAsync, isPending } = useRegister();
+	const router = useRouter();
 	const t = useTranslations('auth');
 	const formSchema = createRegisterSchema(t);
 
@@ -30,7 +34,14 @@ export function RegisterForm() {
 		},
 	});
 
-	const onSubmit = () => {};
+	const onSubmit = async (data: { email: string; password: string }) => {
+		try {
+			await mutateAsync(data);
+			router.push('/auth/login');
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 		<Form {...form}>
@@ -72,7 +83,9 @@ export function RegisterForm() {
 							{t('register.loginLink')}
 						</Link>
 					</span>
-					<Button type='submit'>{t('register.button')}</Button>
+					<Button type='submit' disabled={isPending}>
+						{isPending ? 'loading' : t('register.button')}
+					</Button>
 				</div>
 			</form>
 		</Form>

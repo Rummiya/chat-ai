@@ -15,10 +15,15 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
+import { useLogin } from '@/hooks/useAuth';
 import { createLoginSchema, LoginSchema } from '@/schemas/auth';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 export const LoginForm = () => {
+	const { mutateAsync, isPending, error } = useLogin();
+	const router = useRouter();
+
 	const t = useTranslations('auth');
 	const formSchema = createLoginSchema(t);
 
@@ -30,7 +35,15 @@ export const LoginForm = () => {
 		},
 	});
 
-	const onSubmit = () => {};
+	const onSubmit = async (data: { email: string; password: string }) => {
+		try {
+			const res = await mutateAsync(data);
+			console.log(res);
+			router.push('/profile');
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 		<Form {...form}>
@@ -65,6 +78,8 @@ export const LoginForm = () => {
 					)}
 				/>
 
+				{error && <span className='text-red-500 text-sm'>{error.message}</span>}
+
 				<div className='flex flex-col gap-2 items-center'>
 					<span className='text-xs'>
 						{t('login.noAccount')}{' '}
@@ -72,7 +87,9 @@ export const LoginForm = () => {
 							{t('login.registerLink')}
 						</Link>
 					</span>
-					<Button type='submit'>{t('login.button')}</Button>
+					<Button type='submit' disabled={isPending}>
+						{t('login.button')}
+					</Button>
 				</div>
 			</form>
 		</Form>
