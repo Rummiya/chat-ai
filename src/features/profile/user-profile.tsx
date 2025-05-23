@@ -1,5 +1,6 @@
 'use client';
 
+import { Spinner } from '@/components/shared/spinner';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { useProfile } from '@/features/profile/useProfile';
@@ -11,8 +12,8 @@ export const UserProfile = () => {
 
 	if (isPending) {
 		return (
-			<div className='max-w-md w-full mx-auto'>
-				<div>loading</div>
+			<div className='w-full h-full flex items-center justify-center'>
+				<Spinner />
 			</div>
 		);
 	}
@@ -22,9 +23,9 @@ export const UserProfile = () => {
 	}
 
 	return (
-		<Card className='max-w-md w-full mx-auto'>
+		<Card className='w-full mx-auto h-full'>
 			<CardHeader>
-				<CardTitle>{t('title')}</CardTitle>
+				<CardTitle className='text-xl'>{t('title')}</CardTitle>
 			</CardHeader>
 			<CardContent className='space-y-2'>
 				<div>
