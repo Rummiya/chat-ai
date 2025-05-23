@@ -3,9 +3,12 @@
 		"locale": "{locale, select, ru {ru Русский} en {us English} other {Unknown}}",
 		"label": "язык"
 	},
-	"home": {
-		"title": "Привет",
-		"desc": "Я наконец-то добавила перевод"
+	"common": {
+		"logout": "Выйти"
+	},
+	"navigation": {
+		"profile": "Профиль",
+		"chat": "Чат"
 	},
 	"auth": {
 		"email": "Почта",

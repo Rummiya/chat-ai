@@ -3,9 +3,12 @@
 		"locale": "{locale, select, ru {ru Русский} en {🇺🇸 English} other {Unknown}}",
 		"label": "language"
 	},
-	"home": {
-		"title": "Hello world",
-		"desc": "I finally added translation"
+	"common": {
+		"logout": "Log out"
+	},
+	"navigation": {
+		"profile": "Profile",
+		"chat": "Chat"
 	},
 	"auth": {
 		"email": "Email",
