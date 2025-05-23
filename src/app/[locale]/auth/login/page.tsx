@@ -5,7 +5,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
-import { LoginForm } from '@/features/auth/components/login-form';
+import { LoginForm } from '@/features/auth';
 import { useTranslations } from 'next-intl';
 
 export default function Login() {

@@ -6,7 +6,7 @@ import { hasLocale, Locale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 
-import { AuthInitializer } from '@/features/auth/components/auth-initializer';
+import { AuthInitializer } from '@/features/auth';
 import { QueryProvider } from '@/providers/query-provider';
 
 import './globals.css';
@@ -42,7 +42,7 @@ export default async function RootLayout({ children, params }: Props) {
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<main className='bg-accent-foreground min-h-screen flex items-center justify-center'>
+				<main className='bg-accent-foreground min-h-screen'>
 					<QueryProvider>
 						<AuthInitializer />
 						<NextIntlClientProvider>{children}</NextIntlClientProvider>

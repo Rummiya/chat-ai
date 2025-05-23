@@ -5,7 +5,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
-import { RegisterForm } from '@/features/auth/components/register-form';
+import { RegisterForm } from '@/features/auth';
 import { useTranslations } from 'next-intl';
 
 export default function Register() {
