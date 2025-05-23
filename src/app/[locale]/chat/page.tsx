@@ -1,3 +1,9 @@
+import { AuthGuard } from '@/features/auth/components/auth-guard';
+
 export default function Chat() {
-	return <div>Chat</div>;
+	return (
+		<AuthGuard>
+			<div>Chat</div>
+		</AuthGuard>
+	);
 }

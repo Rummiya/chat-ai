@@ -15,12 +15,11 @@ import {
 	createRegisterSchema,
 	RegisterSchema,
 } from '@/features/auth/auth-schema';
-import { Link } from '@/lib/i18n/navigation';
+import { Link, useRouter } from '@/lib/i18n/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { useRegister } from '@/features/auth/useAuth';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
 export function RegisterForm() {
