@@ -6,6 +6,7 @@ import { hasLocale, Locale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 
+import { QueryProvider } from '@/providers/query-provider';
 import './globals.css';
 
 const geistSans = Geist({
@@ -40,7 +41,9 @@ export default async function RootLayout({ children, params }: Props) {
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				<main className='bg-accent-foreground min-h-screen flex items-center justify-center'>
-					<NextIntlClientProvider>{children}</NextIntlClientProvider>
+					<QueryProvider>
+						<NextIntlClientProvider>{children}</NextIntlClientProvider>
+					</QueryProvider>
 				</main>
 			</body>
 		</html>
