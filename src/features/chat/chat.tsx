@@ -54,7 +54,7 @@ export const ChatBlock = () => {
 
 			<div
 				ref={scrollRef}
-				className='flex-1 w-full h-full max-h-[500px] bg-muted overflow-auto rounded-xl py-4 px-10 scroll-smooth'
+				className='flex-1 w-full h-full max-h-[500px] overflow-auto rounded-xl py-4 px-10 scroll-smooth bg-blue-500/10'
 			>
 				{messages.map(({ text, author, isOwn, timestamp }, index) => (
 					<ChatMessage

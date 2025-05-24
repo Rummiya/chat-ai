@@ -5,6 +5,7 @@ import { Separator } from '@/components/ui/separator';
 
 import { useProfile } from '@/features/profile/useProfile';
 import { useUserStore } from '@/lib/store/userStore';
+import { IdCard, Mail } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 
@@ -31,21 +32,23 @@ export const UserProfile = () => {
 	}
 
 	return (
-		<>
+		<div className='px-10'>
 			<div className='space-y-1'>
 				<h2 className='text-xl font-semibold mb-3.5'>{t('title')}</h2>
 			</div>
 			<Separator className='my-4' />
 			<div className='flex h-5 items-center space-x-4'>
-				<p>
+				<p className='flex items-center gap-2'>
+					<Mail />
 					<strong>{t('email')}:</strong> {user.email}
 				</p>
 				<Separator orientation='vertical' />
-				<p>
+				<p className='flex items-center gap-2'>
+					<IdCard />
 					<strong>{t('id')}:</strong> {user.id}
 				</p>
 			</div>
 			<span className='text-red-500'>{error}</span>
-		</>
+		</div>
 	);
 };
