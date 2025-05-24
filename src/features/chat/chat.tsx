@@ -11,12 +11,14 @@ import { getMessageTime } from '@/lib/utils/getMessageTime';
 import { scrollToBottom } from '@/lib/utils/scrollToBottom';
 
 import { TChatMessage } from '@/types';
+import { useTranslations } from 'next-intl';
 
 export const ChatBlock = () => {
 	const { addMessages, messages } = useChatStore();
 	const currentUser = useUserStore(state => state.current);
 	const [loading, setLoading] = useState(false);
 	const scrollRef = useRef<HTMLDivElement | null>(null);
+	const t = useTranslations('chat');
 
 	const sendMessage = (text: string) => {
 		if (!text) return;
@@ -48,7 +50,7 @@ export const ChatBlock = () => {
 
 	return (
 		<div className='h-full flex flex-col gap-3 justify-between px-10'>
-			<h2 className='text-xl font-semibold'>Chat with AI</h2>
+			<h2 className='text-xl font-semibold'>{t('title')}</h2>
 
 			<div
 				ref={scrollRef}

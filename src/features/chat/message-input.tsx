@@ -4,6 +4,7 @@ import { Spinner } from '@/components/shared/spinner';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { SendIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { FC, KeyboardEvent, useState } from 'react';
 
 type Props = {
@@ -13,6 +14,7 @@ type Props = {
 
 export const MessageInput: FC<Props> = ({ sendMessage, loading }) => {
 	const [inputValue, setInputValue] = useState('');
+	const t = useTranslations('chat');
 
 	const handleSend = () => {
 		if (!inputValue.trim()) return;
@@ -31,7 +33,7 @@ export const MessageInput: FC<Props> = ({ sendMessage, loading }) => {
 		<div className='flex items-center gap-2'>
 			<Input
 				className='w-full rounded-lg'
-				placeholder='Введите сообщение...'
+				placeholder={t('placeholder')}
 				type='text'
 				value={inputValue}
 				onChange={e => setInputValue(e.target.value)}

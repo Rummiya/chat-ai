@@ -45,6 +45,7 @@
 		"error": "Не удалось загрузить профиль"
 	},
 	"chat": {
-		"send": "Send message"
+		"title": "Чат с AI",
+		"placeholder": "Введите сообщение..."
 	}
 }

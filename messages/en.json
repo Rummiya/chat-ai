@@ -44,6 +44,7 @@
 		"error": "Failed to load profile"
 	},
 	"chat": {
-		"send": "Send message"
+		"title": "Chat with AI",
+		"placeholder": "Enter message..."
 	}
 }
