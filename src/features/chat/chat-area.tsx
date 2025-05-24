@@ -13,7 +13,7 @@ import { scrollToBottom } from '@/lib/utils/scrollToBottom';
 import { TChatMessage } from '@/types';
 import { useTranslations } from 'next-intl';
 
-export const ChatBlock = () => {
+export const ChatArea = () => {
 	const { addMessages, messages } = useChatStore();
 	const currentUser = useUserStore(state => state.current);
 	const [loading, setLoading] = useState(false);
@@ -43,18 +43,17 @@ export const ChatBlock = () => {
 		}, 1000);
 	};
 
-	// автоскролл вниз при каждом новом сообщении
 	useEffect(() => {
 		scrollToBottom(scrollRef);
 	}, [messages]);
 
 	return (
-		<div className='h-full flex flex-col gap-3 justify-between px-10 max-md:px-0'>
-			<h2 className='text-xl font-semibold'>{t('title')}</h2>
+		<div className='flex flex-col h-full px-10 max-md:px-0'>
+			<h2 className='text-xl font-semibold py-4'>{t('title')}</h2>
 
 			<div
 				ref={scrollRef}
-				className='flex-1 w-full h-full max-h-[500px] overflow-auto rounded-xl py-4 px-10 max-md:px-5 scroll-smooth bg-blue-500/10'
+				className='flex-1 overflow-y-scroll rounded-xl py-4 px-10 max-md:px-5 scroll-smooth bg-blue-500/10'
 			>
 				{messages.map(({ text, author, isOwn, timestamp }, index) => (
 					<ChatMessage
@@ -67,7 +66,9 @@ export const ChatBlock = () => {
 				))}
 			</div>
 
-			<MessageInput sendMessage={sendMessage} loading={loading} />
+			<div className=' py-2'>
+				<MessageInput sendMessage={sendMessage} loading={loading} />
+			</div>
 		</div>
 	);
 };

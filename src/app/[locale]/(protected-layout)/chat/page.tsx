@@ -1,5 +1,5 @@
-import { ChatBlock } from '@/features/chat/chat';
+import { ChatArea } from '@/features/chat/chat-area';
 
 export default function Chat() {
-	return <ChatBlock />;
+	return <ChatArea />;
 }

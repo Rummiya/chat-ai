@@ -12,11 +12,18 @@ export default function ProtectedLayout({
 		<AuthGuard>
 			<div className='h-screen flex flex-col'>
 				<Header />
-				<div className='flex gap-5 flex-1 md:pt-5 max-md:pb-[60px] max-md:flex-col max-md:gap-0'>
-					<Sidebar />
-					<main className='flex-1 px-9 max-md:px-5 py-5 bg-muted rounded-lg'>
+
+				<div className='flex flex-1 overflow-hidden'>
+					<div className='hidden md:block w-52 shrink-0'>
+						<Sidebar />
+					</div>
+
+					<main className='flex-1 flex flex-col bg-muted rounded-lg px-5 py-4 overflow-hidden'>
 						{children}
 					</main>
+				</div>
+
+				<div className='md:hidden'>
 					<MobileNavbar />
 				</div>
 			</div>
