@@ -22,9 +22,9 @@ export const Header = () => {
 			<div className='text-xl font-bold text-primary flex items-center gap-2'>
 				<BotIcon /> chat-ai
 			</div>
-			<div className='flex items-center gap-4'>
+			<div className='flex items-center gap-4 text-sm'>
 				<LocaleSwitcher />
-				<Button onClick={handleLogout}>
+				<Button className='max-md:text-xs' onClick={handleLogout}>
 					<LogOut /> {t('logout')}
 				</Button>
 			</div>

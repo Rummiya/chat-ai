@@ -15,7 +15,7 @@ export const Sidebar = () => {
 	const t = useTranslations('navigation');
 
 	return (
-		<aside className='w-52 h-full bg-muted p-4 border-r rounded-lg'>
+		<aside className='w-52 h-full bg-muted p-4 border-r rounded-lg max-md:hidden'>
 			<nav className='flex flex-col gap-2'>
 				{navItems.map(item => (
 					<Link

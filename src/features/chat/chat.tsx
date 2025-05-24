@@ -49,12 +49,12 @@ export const ChatBlock = () => {
 	}, [messages]);
 
 	return (
-		<div className='h-full flex flex-col gap-3 justify-between px-10'>
+		<div className='h-full flex flex-col gap-3 justify-between px-10 max-md:px-0'>
 			<h2 className='text-xl font-semibold'>{t('title')}</h2>
 
 			<div
 				ref={scrollRef}
-				className='flex-1 w-full h-full max-h-[500px] overflow-auto rounded-xl py-4 px-10 scroll-smooth bg-blue-500/10'
+				className='flex-1 w-full h-full max-h-[500px] overflow-auto rounded-xl py-4 px-10 max-md:px-5 scroll-smooth bg-blue-500/10'
 			>
 				{messages.map(({ text, author, isOwn, timestamp }, index) => (
 					<ChatMessage

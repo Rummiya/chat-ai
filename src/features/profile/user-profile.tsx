@@ -32,7 +32,7 @@ export const UserProfile = () => {
 	}
 
 	return (
-		<div className='px-10'>
+		<div className='px-10 max-md:px-2'>
 			<div className='space-y-1'>
 				<h2 className='text-xl font-semibold mb-3.5'>{t('title')}</h2>
 			</div>
