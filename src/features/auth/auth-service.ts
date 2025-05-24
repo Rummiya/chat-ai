@@ -1,5 +1,5 @@
 import { BASE_URL } from '@/constants';
-import { User } from '@/types';
+import { TUser } from '@/types';
 
 export const registerUser = async (email: string, password: string) => {
 	const res = await fetch(`${BASE_URL}/api/users`, {
@@ -19,7 +19,7 @@ export const loginUser = async (email: string, password: string) => {
 		throw new Error('Неверная почта');
 	}
 
-	const users = (await res.json()) as User[];
+	const users = (await res.json()) as TUser[];
 
 	if (!users.length) {
 		throw new Error('Пользователь не найден');

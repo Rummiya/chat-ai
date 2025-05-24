@@ -2,10 +2,10 @@
 
 import { Spinner } from '@/components/shared/spinner';
 import { Separator } from '@/components/ui/separator';
+import { IdCard, Mail } from 'lucide-react';
 
 import { useProfile } from '@/features/profile/useProfile';
 import { useUserStore } from '@/lib/store/userStore';
-import { IdCard, Mail } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 
