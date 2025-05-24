@@ -23,6 +23,7 @@ export const MessageInput: FC<Props> = ({ sendMessage, loading }) => {
 	};
 
 	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+		if (loading) return;
 		if (e.key === 'Enter') {
 			e.preventDefault();
 			handleSend();

@@ -53,7 +53,7 @@ export const ChatArea = () => {
 
 			<div
 				ref={scrollRef}
-				className='flex-1 overflow-y-scroll rounded-xl py-4 px-10 max-md:px-5 scroll-smooth bg-blue-500/10'
+				className='flex-1 overflow-y-auto rounded-xl py-4 px-10 max-md:px-5 scroll-smooth bg-blue-500/10'
 			>
 				{messages.map(({ text, author, isOwn, timestamp }, index) => (
 					<ChatMessage
