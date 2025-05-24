@@ -1,6 +1,7 @@
 'use client';
 
 import { useAuthStore } from '@/lib/store/authStore';
+import { useUserStore } from '@/lib/store/userStore';
 import { BotIcon, LogOut } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -10,10 +11,12 @@ import { Button } from '../ui/button';
 export const Header = () => {
 	const t = useTranslations('common');
 	const { logout } = useAuthStore();
+	const { clearCurrent } = useUserStore();
 	const router = useRouter();
 
 	const handleLogout = () => {
 		logout();
+		clearCurrent();
 		router.push('/auth/login');
 	};
 

@@ -2,13 +2,21 @@ import { BASE_URL } from '@/constants';
 import { TUser } from '@/types';
 
 export const registerUser = async (email: string, password: string) => {
+	const checkRes = await fetch(`${BASE_URL}/api/users?email=${email}`);
+	const existingUsers = (await checkRes.json()) as TUser[];
+
+	if (existingUsers.length > 0) {
+		throw new Error('Пользователь с таким email уже существует');
+	}
+
 	const res = await fetch(`${BASE_URL}/api/users`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ email, password }),
 	});
 
-	if (!res.ok) throw new Error('Failed to register');
+	if (!res.ok) throw new Error('Ошибка при регистрации');
+
 	return res.json();
 };
 

@@ -26,7 +26,7 @@ export function RegisterForm() {
 	const router = useRouter();
 	const t = useTranslations('auth');
 	const formSchema = createRegisterSchema(t);
-	const { mutateAsync, isPending } = useRegister();
+	const { mutateAsync, isPending, error } = useRegister();
 
 	const form = useForm<RegisterSchema>({
 		resolver: zodResolver(formSchema),
@@ -77,6 +77,8 @@ export function RegisterForm() {
 						</FormItem>
 					)}
 				/>
+
+				{error && <span className='text-red-500 text-sm'>{error.message}</span>}
 
 				<div className='flex flex-col gap-2 items-center'>
 					<span className='text-xs'>
