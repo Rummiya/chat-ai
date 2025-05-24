@@ -10,5 +10,5 @@ export const AuthInitializer = () => {
 		initFromStorage();
 	}, [initFromStorage]);
 
-	return null; // ничего не рендерит
+	return null;
 };
