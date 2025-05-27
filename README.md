@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💬 Chat-AI — чат-приложение с авторизацией и мультиязычностью
 
-## Getting Started
+Интерактивное приложение на базе Next.js с возможностью регистрации, авторизации и общения с ИИ, адаптированое под десктоп и мобильные устройства
 
-First, run the development server:
+## 🚀 Стек технологий
+
+- **Next.js (App Router)**  
+- **TypeScript**  
+- **Tailwind CSS**  
+- **shadcn/ui**  
+- **Zustand** — глобальное хранилище токена и текущего пользователя  
+- **TanStack Query** — для запросов данных  
+- **next-intl** — мультиязычность (us English / ru Русский)
+- **MockApi**
+
+## ⚙️ Основной функционал
+
+- 🔐 Имитация регистрации и входа через MockApi
+- 🛡️ `AuthGuard` — защита маршрутов без токена
+- 👤 Глобальный `currentUser` с загрузкой при инициализации
+- 💬 Чат с интерфейсом:
+  - отправка сообщений
+  - автоскролл вниз
+  - имитация ответа ИИ
+- 🌐 Переключение языка
+
+## 📸 Screenshots
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/6fff21b6-b370-4c77-ae6f-8616dc38a8fd" width="300" />
+  <img src="https://github.com/user-attachments/assets/71608147-3baa-460c-830f-5ae7155a5759" width="300" />
+  <img src="https://github.com/user-attachments/assets/a5832952-0a40-4087-a7f1-3de0ef95ace6" width="300" />
+</div>
+
+
+
+## 🔧 Установка и запуск
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Клонировать проект
+git clone https://github.com/Rummiya/chat-ai.git
+cd chat-ai
+
+# Установить зависимости
+pnpm install
+
+# Запустить
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
