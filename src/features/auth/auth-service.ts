@@ -3,9 +3,9 @@ import { TUser } from '@/types';
 
 export const registerUser = async (email: string, password: string) => {
 	const checkRes = await fetch(`${BASE_URL}/api/users?email=${email}`);
-	const existingUsers = (await checkRes.json()) as TUser[];
+	const existingUsers = (await checkRes.json()) as TUser[] | string;
 
-	if (existingUsers.length > 0) {
+	if (Array.isArray(existingUsers) && existingUsers.length > 0) {
 		throw new Error('Пользователь с таким email уже существует');
 	}
 

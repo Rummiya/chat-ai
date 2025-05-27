@@ -18,6 +18,7 @@ import {
 import { Link, useRouter } from '@/lib/i18n/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import { Spinner } from '@/components/shared/spinner';
 import { useRegister } from '@/features/auth/useAuth';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
@@ -88,7 +89,13 @@ export function RegisterForm() {
 						</Link>
 					</span>
 					<Button type='submit' disabled={isPending}>
-						{isPending ? 'loading' : t('register.button')}
+						<div className='p-3 min-w-[40px] h-[40px] flex items-center justify-center'>
+							{isPending ? (
+								<Spinner className='border-2' />
+							) : (
+								t('register.button')
+							)}
+						</div>
 					</Button>
 				</div>
 			</form>
