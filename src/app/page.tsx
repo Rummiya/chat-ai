@@ -1,5 +1,11 @@
 import { redirect } from '@/lib/i18n/navigation';
+import { Locale } from 'next-intl';
 
-export default function RootPage({ params }: { params: { locale: string } }) {
-	return redirect({ href: '/profile', locale: params.locale });
+type Props = {
+	params: Promise<{ locale: Locale }>;
+};
+
+export default async function RootPage({ params }: Props) {
+	const { locale } = await params;
+	return redirect({ href: '/profile', locale: locale });
 }
