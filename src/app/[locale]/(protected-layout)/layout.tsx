@@ -10,7 +10,7 @@ export default function ProtectedLayout({
 }) {
 	return (
 		<AuthGuard>
-			<div className='h-screen flex flex-col'>
+			<div className='h-screen flex flex-col max-md:pb-12'>
 				<Header />
 
 				<div className='flex flex-1 overflow-hidden'>
