@@ -1,10 +1,10 @@
 // src/store/auth-store.ts
-import { User } from '@/types';
+import { TUser } from '@/types';
 import { create } from 'zustand';
 
 interface UserState {
-	current: User | null;
-	setCurrent: (current: User) => void;
+	current: TUser | null;
+	setCurrent: (current: TUser) => void;
 	clearCurrent: () => void;
 }
 
